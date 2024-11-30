@@ -38,14 +38,14 @@
         margin-top: 12px;
         margin-bottom: 12px;
       }
-      #myCode{
+      #myCode {
         background-color: gray;
         padding: 20px;
         border-radius: 5px;
       }
     </style>
   </head>
-  <bod>
+  <body>
     <section>
       <div>
         <button id="myButton">#635732</button>
@@ -57,7 +57,24 @@
     <script>
       const btn1 = document.getElementById("myButton");
       const btn2 = document.getElementById("myButton2");
+
+      const hexValus = () => {
+        let myHexValues = "0123456789abcdef";
+        let colors = "#";
+
+        for (let i = 0; i <= 6; i++) {
+          colors = colors + myHexValues[Math.floor(Math.random() * 16)];
+        }
+        return colors;
+      };
+
+      const handleButton1 = () => {
+        let rgb1 = hexValus();
+        console.log(rgb1);
+      };
+
+      btn1.addEventListener("click", handleButton1);
+      //   btn2.addEventListener("click",handleButton2)
     </script>
-  </bod
-  y>
+  </body>
 </html>
