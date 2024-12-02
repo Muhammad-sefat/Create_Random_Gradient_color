@@ -42,6 +42,7 @@
         background-color: gray;
         padding: 20px;
         border-radius: 5px;
+        color: rgb(15, 25, 25);
       }
     </style>
   </head>
@@ -52,29 +53,42 @@
         <button id="myButton2">#363432</button>
       </div>
       <h3>Copy Code Click By Here</h3>
-      <div id="myCode">Background image is very cool</div>
+      <div id="myCode">
+        Background-Image:linear-gradient( to right,#363432,#635732)
+      </div>
     </section>
     <script>
       const btn1 = document.getElementById("myButton");
       const btn2 = document.getElementById("myButton2");
+      const myCode = document.getElementById("myCode");
 
+      let rgb1 = "#000";
+      let rgb2 = "#fff";
       const hexValus = () => {
         let myHexValues = "0123456789abcdef";
         let colors = "#";
 
-        for (let i = 0; i <= 6; i++) {
+        for (let i = 0; i < 6; i++) {
           colors = colors + myHexValues[Math.floor(Math.random() * 16)];
         }
         return colors;
       };
 
       const handleButton1 = () => {
-        let rgb1 = hexValus();
-        console.log(rgb1);
+        rgb1 = hexValus();
+        btn1.innerText = rgb1;
+        document.body.style.backgroundImage = `linear-gradient(to right, ${rgb1}, ${rgb2})`;
+        myCode.innerHTML = ` Background-Image:linear-gradient( to right,${rgb1},${rgb2})`;
+      };
+      const handleButton2 = () => {
+        rgb2 = hexValus();
+        btn2.innerText = rgb2;
+        document.body.style.backgroundImage = `linear-gradient(to right, ${rgb1}, ${rgb2})`;
+        myCode.innerHTML = ` Background-Image:linear-gradient( to right,${rgb1},${rgb2})`;
       };
 
       btn1.addEventListener("click", handleButton1);
-      //   btn2.addEventListener("click",handleButton2)
+      btn2.addEventListener("click", handleButton2);
     </script>
   </body>
 </html>
