@@ -12,7 +12,7 @@
         font-family: Verdana, Geneva, Tahoma, sans-serif;
       }
       body {
-        background-color: cadetblue;
+        background-color: rgb(75, 143, 145);
         height: 100vh;
         display: flex;
         align-items: center;
@@ -62,8 +62,8 @@
       const btn2 = document.getElementById("myButton2");
       const myCode = document.getElementById("myCode");
 
-      let rgb1 = "#000";
-      let rgb2 = "#fff";
+      let rgb1 = "rgb(75, 143, 145)";
+      let rgb2 = "rgb(75, 143, 145)";
       const hexValus = () => {
         let myHexValues = "0123456789abcdef";
         let colors = "#";
@@ -87,6 +87,10 @@
         myCode.innerHTML = ` Background-Image:linear-gradient( to right,${rgb1},${rgb2})`;
       };
 
+      myCode.addEventListener("click", () => {
+        navigator.clipboard.writeText(myCode.innerText);
+        alert(`Copied the text : ${myCode.innerText}`);
+      });
       btn1.addEventListener("click", handleButton1);
       btn2.addEventListener("click", handleButton2);
     </script>
